@@ -1,9 +1,18 @@
 import './Welcome.css';
+import NewDate from './NewDate';
+import Person from './Person';
 
 function Welcome(props) {
+  const today = new Date(Date.now()).toLocaleDateString();
+  const data = {
+    dni:Math.random(8).toString().substring(2, 10) + String.fromCharCode(Math.floor((Math.random() * 90) + 65)).toUpperCase(),
+    userName: props.userName
+  }
   return (
     <div>
-        <h1>Hello, {props.name}</h1>
+        <h1>Hello, {props.userName}</h1>
+        <NewDate today={today}></NewDate>
+        <Person info={data}></Person>
     </div>
   );
 }
